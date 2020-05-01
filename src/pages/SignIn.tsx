@@ -226,12 +226,12 @@ export default class pages extends Component {
 
           <TextInput
             placeholder="email"
-            style={styles.textInput}
+            style={{...styles.textInput, backgroundColor: 'white'}}
             placeholderTextColor="black"
           />
           <TextInput
             placeholder="password"
-            style={styles.textInput}
+            style={{...styles.textInput, backgroundColor: 'white'}}
             placeholderTextColor="black"
           />
 

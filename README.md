@@ -19,3 +19,10 @@ expo install react-native-gesture-handler
 
 yarn add react-native-svg - used for clipping the image
 ```
+
+
+#### Some references 
+
+- Preloading assets [with expo](https://docs.expo.io/guides/preloading-and-caching-assets/#pre-loading-and-caching-assets)
+- [Gesture Handler](https://docs.expo.io/versions/latest/sdk/gesture-handler/)
+- [Reanimated](https://docs.expo.io/versions/latest/sdk/reanimated/)
