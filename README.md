@@ -1,6 +1,12 @@
 ## Animations with Reanimated and Gesture Handler
 
 
+The animation was created with React Native and was inspired in [this one](https://www.uplabs.com/posts/music-app-f97dc678-7b2d-4534-92ac-7dd0dd62944b).
+
+
+
+#### How to run
+
 ```
 expo init <project-name>
 cd <project-name>
