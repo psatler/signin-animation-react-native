@@ -36,7 +36,7 @@ function runTiming(clock, value, dest) {
   };
 
   const config = {
-    duration: 1000,
+    duration: 550, // in ms
     toValue: new Value(0),
     easing: Easing.inOut(Easing.ease)
   };
@@ -71,6 +71,20 @@ export default class pages extends Component {
               eq(state, State.END), 
               set(this.buttonOpacity, // set opacity with the help of runTiming function
                 runTiming(new Clock(), 1, 0))
+                )
+              ])
+      }
+    ]);
+
+    this.onCloseState = event([
+      {
+        nativeEvent: ({state}) =>
+          // detect when the end of the click on the close button occurs, so we change the button opacity reversely
+          block([
+            cond(
+              eq(state, State.END), 
+              set(this.buttonOpacity, 
+                runTiming(new Clock(), 0, 1)) // now from zero to one
                 )
               ])
       }
@@ -178,7 +192,7 @@ export default class pages extends Component {
             justifyContent: 'center'
           }}
         >
-          <TapGestureHandler >
+          <TapGestureHandler onHandlerStateChange={this.onCloseState} >
             <Animated.View
               style={styles.closeButton}
             >
