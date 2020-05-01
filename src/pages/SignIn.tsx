@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
-import { Text, View, StyleSheet, Image, Dimensions, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, TextInput } from 'react-native';
 
-// import { Container } from './styles';
+
+import Svg, { Image, Circle, ClipPath } from 'react-native-svg'
+
 import Animated, { Easing } from 'react-native-reanimated'
 import { TapGestureHandler, State } from 'react-native-gesture-handler'
 
@@ -100,7 +102,7 @@ export default class pages extends Component {
     // push the background upwards
     this.bgY = interpolate(this.buttonOpacity, {
       inputRange: [0, 1],
-      outputRange: [-windowHeight / 3, 0],
+      outputRange: [(-windowHeight / 3) - 25, 0],
       extrapolate: Extrapolate.CLAMP,
     });
 
@@ -142,10 +144,21 @@ export default class pages extends Component {
         ]
         
         }} >
-        <Image
-          source={require('../../assets/bg.jpg')}
-          style={styles.imageStyle}
-        />
+          <Svg 
+            height={windowHeight + 50}
+            width={windowWidth}
+          >
+            <ClipPath id="clip">
+              <Circle r={windowHeight + 50} cx={windowWidth / 2} />
+            </ClipPath>
+            <Image
+              href={require('../../assets/bg.jpg')}
+              height={windowHeight + 50}
+              width={windowWidth}
+              preserveAspectRatio='xMidYMid slice'
+              clipPath="url(#clip)"
+            />
+          </Svg>
       </Animated.View>
 
     {/* for the buttons, 1/3 of the screen height */}

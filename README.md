@@ -10,4 +10,6 @@ expo install expo-asset  (to cache, so we first load the image and then display 
 
 expo install react-native-reanimated
 expo install react-native-gesture-handler
+
+yarn add react-native-svg - used for clipping the image
 ```
